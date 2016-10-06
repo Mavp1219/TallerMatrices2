@@ -69,7 +69,7 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("FORMAS MATRICES");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(253, 32, 270, 40));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, 270, 40));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos Iniciales"));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -217,21 +217,21 @@ public class Principal extends javax.swing.JFrame {
                 tm = (DefaultTableModel) tblTablaInicial.getModel();
                 tm2 = (DefaultTableModel) tblTablaResultado.getModel();
                 if (nf >= 13 && nc >= 13) {
-                   Helper.mensaje(this, "La matriz se pasa de lo establecido", "Error", 2);
-                    Helper.tablaPorDefecto(tblTablaInicial);
-                    Helper.tablaPorDefecto(tblTablaResultado);
-                    txtNumerofilas.setText("");
-                    txtNumerocolumnas.setText("");
-                    txtNumerofilas.requestFocusInWindow();
-                } if (nf <= 3 && nc <= 3) {
-                    Helper.mensaje(this, "La matriz es demasiado pequeña", "Error", 2);
+                    Helper.mensaje(this, "La matriz se pasa de lo establecido", "Error", 2);
                     Helper.tablaPorDefecto(tblTablaInicial);
                     Helper.tablaPorDefecto(tblTablaResultado);
                     txtNumerofilas.setText("");
                     txtNumerocolumnas.setText("");
                     txtNumerofilas.requestFocusInWindow();
                 }
-                else {
+                if (nf <= 3 && nc <= 3) {
+                    Helper.mensaje(this, "La matriz es demasiado pequeña", "Error", 2);
+                    Helper.tablaPorDefecto(tblTablaInicial);
+                    Helper.tablaPorDefecto(tblTablaResultado);
+                    txtNumerofilas.setText("");
+                    txtNumerocolumnas.setText("");
+                    txtNumerofilas.requestFocusInWindow();
+                } else {
                     tm.setRowCount(nf);
                     tm.setColumnCount(nc);
                     tm2.setRowCount(nf);
@@ -320,21 +320,28 @@ public class Principal extends javax.swing.JFrame {
         Helper.limpiarTabla(tblTablaResultado);
         switch (op) {
             case 0:
-            Helper.LetraB(tblTablaInicial, tblTablaResultado);
-            break;
+                Helper.LetraB(tblTablaInicial, tblTablaResultado);
+                break;
             case 1:
-            Helper.LetraK(tblTablaInicial, tblTablaResultado);
-            break;
+                break;
             case 2:
-            Helper.LetraM(tblTablaInicial, tblTablaResultado);
-            break;
-            case 3: 
-            Helper.LetraW(tblTablaInicial, tblTablaResultado);
-            break;
-            case 4: 
-            Helper.LetraQ(tblTablaInicial, tblTablaResultado);
-            break;
-        }                        
+                Helper.letraW(tblTablaInicial, tblTablaResultado);
+                break;
+            case 3:                
+                Helper.LetraM(tblTablaInicial, tblTablaResultado);
+                break;
+            case 4:                
+                break;
+            case 5:
+                Helper.letraJ(tblTablaInicial, tblTablaResultado);
+                break;
+            case 6:
+                Helper.LetraG(tblTablaInicial, tblTablaResultado);
+                break;
+            case 7:
+                Helper.letraR(tblTablaInicial, tblTablaResultado);
+                break;
+        }        
     }//GEN-LAST:event_cmdOperacionActionPerformed
 
     private void cmdLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLimpiarActionPerformed
