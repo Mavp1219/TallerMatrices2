@@ -213,28 +213,32 @@ public class Helper {
     
     
    public static void figura2(JTable tabla1, JTable tabla2){
-        int nf, nc;
+        int nf, nc, aux;
         nf = tabla1.getRowCount();
         nc = tabla1.getColumnCount();
         for (int j = 0; j < nc; j++) {
             for (int i = j; i < nf-j; i++) {
-                tabla2.setValueAt(tabla1.getValueAt(i, j), i, j); 
-                tabla2.setValueAt(tabla1.getValueAt(i, nc-j-1), i, nc-j-1);
+                aux = (int) tabla1.getValueAt(i, j);
+                if (((j > i && nc - 1 - j <= i)) || (j <= i) && (nc - 1 - j > i)) {
+                    tabla2.setValueAt(aux, i, j);
             }
         }
     }
+   }
     
     
     public static void figura1(JTable tabla1, JTable tabla2){
-        int nf, nc;
+        int nf, nc,aux;
         nf = tabla1.getRowCount();
         nc = tabla1.getColumnCount();
         for (int i = 0; i < nf; i++) {
             for (int j = i; j < nc-i; j++) {
-                tabla2.setValueAt(tabla1.getValueAt(i, j), i, j);   
-                tabla2.setValueAt(tabla1.getValueAt(nf-i-1, j), nf-i-1, j);
+               aux = (int) tabla1.getValueAt(i, j);
+                if (((i > j && nf - 1 - i <= j)) || (i <= j) && (nf - 1 - i > j)) {
+                    tabla2.setValueAt(aux, i, j);
             }
         }
+    }
     }
     
     
