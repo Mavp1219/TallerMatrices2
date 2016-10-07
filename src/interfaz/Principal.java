@@ -155,7 +155,7 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 70, 430, 60));
 
-        cmboperaciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Letra B", "Letra K", "Letra W", "Letra M", "Letra Q", "Letra J", "Letra G", "Letra R", "Figura 3" }));
+        cmboperaciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Letra B", "Letra K", "Letra W", "Letra M", "Letra Q", "Letra J", "Letra G", "Letra R", "Figura 1", "Figura 2", "Figura 3", "Figura 4" }));
         cmboperaciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmboperacionesActionPerformed(evt);
@@ -236,6 +236,8 @@ public class Principal extends javax.swing.JFrame {
                     tm.setColumnCount(nc);
                     tm2.setRowCount(nf);
                     tm2.setColumnCount(nc);
+                    txtNumerocolumnas.setEditable(false);
+                    txtNumerofilas.setEditable(false);
                     txtNumerocolumnas.setEditable(false);
                     txtNumerofilas.setEditable(false);
                     JButton botonesH[] = {cmdLlenadoAutomatico, cmdLlenadoManual, cmdLimpiar};
@@ -344,7 +346,16 @@ public class Principal extends javax.swing.JFrame {
                 Helper.letraR(tblTablaInicial, tblTablaResultado);
                 break;
             case 8:
+                Helper.figura1(tblTablaInicial, tblTablaResultado);
+                break;
+            case 9:
+                Helper.figura2(tblTablaInicial, tblTablaResultado);
+                break;
+            case 10:
                 Helper.figura3(tblTablaInicial, tblTablaResultado);
+                break;
+            case 11:
+                Helper.figura4(tblTablaInicial, tblTablaResultado);
                 break;
         }        
     }//GEN-LAST:event_cmdOperacionActionPerformed

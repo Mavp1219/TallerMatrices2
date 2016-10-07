@@ -210,4 +210,51 @@ public class Helper {
         }
     }
     
+    
+    
+   public static void figura2(JTable tabla1, JTable tabla2){
+        int nf, nc;
+        nf = tabla1.getRowCount();
+        nc = tabla1.getColumnCount();
+        for (int j = 0; j < nc; j++) {
+            for (int i = j; i < nf-j; i++) {
+                tabla2.setValueAt(tabla1.getValueAt(i, j), i, j); 
+                tabla2.setValueAt(tabla1.getValueAt(i, nc-j-1), i, nc-j-1);
+            }
+        }
+    }
+    
+    
+    public static void figura1(JTable tabla1, JTable tabla2){
+        int nf, nc;
+        nf = tabla1.getRowCount();
+        nc = tabla1.getColumnCount();
+        for (int i = 0; i < nf; i++) {
+            for (int j = i; j < nc-i; j++) {
+                tabla2.setValueAt(tabla1.getValueAt(i, j), i, j);   
+                tabla2.setValueAt(tabla1.getValueAt(nf-i-1, j), nf-i-1, j);
+            }
+        }
+    }
+    
+    
+       public static void figura4(JTable tabla1, JTable tabla2) {
+        int nf, nc, aux, aux2,aux3;
+        nf = tabla1.getRowCount();
+        nc = tabla1.getColumnCount();
+        aux2 = (nc / 2);
+        aux3=nc;
+        for (int i = 0; i < nf; i++) {
+            for (int j = 0; j < nc; j++) {
+                aux = (int) tabla1.getValueAt(i, j);
+                if (i+aux2==j || j+aux2==i || aux2-i==j || nc-i+aux2==j+ 1) {
+                    tabla2.setValueAt(aux, i, j);
+                }
+            }
+        }
+    }
+    
+    
+    
+    
 }
